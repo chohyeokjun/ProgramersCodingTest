@@ -1,23 +1,17 @@
+import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.stream.Collectors;
 
 class Solution {
     public int[] solution(int[] arr, int divisor) {
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] % divisor == 0) {
-                list.add(arr[i]);
-            }
-        }
+        List<Integer> list = Arrays.stream(arr)
+                .filter(num -> num % divisor == 0)
+                .boxed()
+                .collect(Collectors.toList());
         if (list.isEmpty()) {
             list.add(-1);
         }
-        Collections.sort(list);
-        int [] answer = new int[list.size()];
-        for (int j = 0; j < list.size(); j++) {
-            answer[j]= list.get(j);
-        }
-        return answer;
+
+        return list.stream().mapToInt(i -> i.intValue()).sorted().toArray();
     }
 }

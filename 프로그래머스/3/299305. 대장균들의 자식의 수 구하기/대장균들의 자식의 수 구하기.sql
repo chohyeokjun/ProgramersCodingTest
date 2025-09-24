@@ -1,0 +1,5 @@
+-- 코드를 작성해주세요
+SELECT a.ID, count(b.PARENT_ID) as CHILD_COUNT
+FROM ECOLI_DATA a left join ECOLI_DATA b on a.ID = b.PARENT_ID
+GROUP BY 1
+ORDER BY 1

@@ -4,9 +4,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
         int y = sc.nextInt();
-        check(x, y);
-    }
-    private static void check(int x, int y) {
         if (x > 0) {
             if (y > 0) {
                 System.out.print(1);
